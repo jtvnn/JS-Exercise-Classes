@@ -74,19 +74,54 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
-    constructor(model, milesPerGallon){
-      this.model = model;
-      this.milesPerGallon = milesPerGallon;
-      this.tank = 0;
-      this.odometer = 0;
-    }
-    fill(gallons){
-      this.tank = this.tank + gallons;
-    }
-    drive(distance){
-      this.odometer = this.odometer + distance;
-    }
+          class Car {
+            constructor (model, milesPerGallon){
+              this.model = model;
+              this.milesPerGallon = milesPerGallon;
+              this.tank = 0;
+              this.odometer = 0;
+
+            }
+              fill (gallons){
+               return this.tank += gallons;
+              }
+              drive(distance){
+                let distanceLeft = this.tank * this.milesPerGallon;
+                if(distanceLeft > distance){
+                  this.odometer += distance;
+                  this.tank -= distance / this.milesPerGallon;
+                  return this.odometer, this.tank;
+                } else {
+                  this.odometer += distanceLeft;
+                  this.tank = 0;
+                  return `I ran out of fuel at ${this.odometer.toFixed(2)} miles!`
+                }
+              }
+//  class Car {
+//     constructor(model, milesPerGallon){
+//       this.model = model;
+//       this.milesPerGallon = milesPerGallon;
+//       this.tank = 0;
+//       this.odometer = 0;
+//     }
+//     fill(gallons){
+//       this.tank = this.tank + gallons;
+//     }
+//     drive(distance){
+
+    //   let drivableMiles = this.milesPerGallon * this.tank;
+    //   if(distance < this.milesPerGallon * this.tank){
+    //     this.odometer = this.odometer + distance;
+    //     this.tank = this.tank - distance / this.milesPerGallon;
+    //   if(this.tank === 0){
+    //     return `I ran out of fuel at ${this.odometer} miles!`;
+    //   }else{
+    //     this.odometer += drivableMiles;
+    //     this.tank = 0;
+    //     return `I ran out of fuel at ${this.odometer} miles!`;
+    //   }
+    // }
+    // }
   }
   
   /*
@@ -110,6 +145,7 @@ class Airplane {
     speak(){
       return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
+
   }
   
   /*
