@@ -130,9 +130,6 @@ class Airplane {
  class Instructor extends Lambdasian {
   constructor(args){
     super(args);
-    this.name = args.name;
-    this.age = args.age;
-    this.location = args.location;
     this.specialty = args.specialty;
     this.favLanguage = args.favLanguage;
     this.catchPhrase = args.catchPhrase;
@@ -159,8 +156,22 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian{
+  constructor(args){
+    super(args);
+    this.previousBackground = args.previousBackground;
+    this.className = args.className;
+    this.favSubjects = args.favSubjects;
+  }
+  listSubjects(){
+
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
  }
   
   /*
