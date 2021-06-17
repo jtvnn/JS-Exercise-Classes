@@ -85,8 +85,7 @@ class Airplane {
       this.tank = this.tank + gallons;
     }
     drive(distance){
-      this.odometer = this.odometer + 1;
-      this.tank = this.tank - (this.milesPerGallon / this.odometer);
+      this.odometer = this.odometer + distance;
     }
   }
   
@@ -187,8 +186,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+     constructor(args){
+       super(args);
+       this.gradClassName = args.gradClassName;
+       this.favInstructor = args.favInstructor;
+     }
+     standUp(channel){
+       return `${this.name} announces to ${channel}, @channel standy times!`;
+     }
+     debugsCode(student, subject){
+       return `${this.name} debugs ${student.name}'s code on ${subject}`;
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
