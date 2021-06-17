@@ -163,7 +163,7 @@ class Airplane {
     this.favSubjects = args.favSubjects;
   }
   listSubjects(){
-
+      return `Loving ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}`
   }
   PRAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`;
